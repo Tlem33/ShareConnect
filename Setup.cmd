@@ -1,7 +1,10 @@
-:: Setup.cmd - Créer par Tlem le 31/08/2018
-:: Programme d'installation et de désinstallation d'une application.
+:: Setup.cmd - Créer par Tlem33
+:: Programme d'installation et de désinstallation pour ShareConnect.
 ::
-:: Voir la section Historique du fichier LisezMoi.txt pour plus d'informations.
+:: Lire le fichier README.md pour plus d'informations.
+::
+:: Version 1.9 du 11/05/2021
+:: https://github.com/Tlem33/ShareConnect
 ::
 
 @Echo Off
@@ -64,12 +67,11 @@ Echo.
 Echo.
 Echo.
 Echo.
-:: Le caractère ÿ permet de faire un espace OEM (ALT+255 puis conversion en OEM)
-Set /P Var= Veuillez taper votre choix (1, 2, 3 ou 4) :ÿ
-If /I %var%==1 Set LinkTarget=%LinkTarget1% & Goto :Install
-If /I %var%==2 Set LinkTarget=%LinkTarget2% & Goto :Install
-If /I %var%==3 Goto :Uninstall
-If /I %var%==4 popd & Exit
+Choice /c 1234 /m "Entrez votre choix : "
+If %Errorlevel%==4 popd & Exit
+If %Errorlevel%==3 Goto :Uninstall
+If %Errorlevel%==2 Set LinkTarget=%LinkTarget2% & Goto :Install
+If %Errorlevel%==1 Set LinkTarget=%LinkTarget1% & Goto :Install
 Goto :Titre
 
 
@@ -147,10 +149,7 @@ Echo DEl /F /Q "%%~DPNX0" ^&^& Exit>>%UninstallFile%
 Echo If Exist "%%~DPNX0" Goto :AutoDelete>>%UninstallFile%
 Echo Exit>>%UninstallFile%
 
-Echo.
-Echo Fermez la fenˆtre Explorer du dossier "%InstallDir%"
-Echo puis appuyez sur une touche pour continuer la d‚sinstallation.
-Pause>Nul
+Call :Close_Window "%InstallDir%"
 
 Start "Uninstall" /D "%Temp%" "%LinkName%_Uninstall.cmd"
 popd & Exit
@@ -330,6 +329,20 @@ Goto :EOF
 :: auraient été utilisées dans les variables des chemin par exemple.
 :ExpandVar
 Set %1=%~2
+Goto :EOF
+
+
+:: Permet de fermer la fenêtre Explorer du dossier d'installation si elle est ouverte.
+:Close_Window <Window Name>
+Set TmpFile="%Temp%\close_window.vbs"
+(
+    echo For Each window in CreateObject("shell.application"^).Windows
+    echo     If window.document.folder.self.Path = WScript.Arguments.Item(0^) Then window.Quit
+    echo Next
+)>%TmpFile%
+cscript //nologo %TmpFile% "%~1"
+Ping -n 2 127.0.0.1>Nul
+Del /F /Q %TmpFile%
 Goto :EOF
 
 
