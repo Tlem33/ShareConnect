@@ -1,4 +1,4 @@
-:: ShareConnect.cmd Créer par Tlem33
+:: ShareConnect.cmd - Par Tlem33
 :: Connecte un partage sur un lecteur réseau.
 ::
 :: Lire le fichier README.md pour plus d'informations.

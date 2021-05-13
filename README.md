@@ -164,4 +164,6 @@ INDIRECT AVEC L’UTILISATION DE CE LOGICIEL.
 		  Je remet donc l'extension de base ".cmd".  ^^  
 		- Mise à jour de l'entête de ShareConnect.cmd et ShareConnect+.cmd.  
 		- Setup.cmd : Ajout d'une fonction de fermeture automatique lors de la désinstallation.  
-		- Setup.cmd : Remplacement du mode de sélection des choix (Set /P => Choice).  
+		- Setup.cmd : Remplacement du mode de sélection des choix (Set /P => Choice). 
+		- Setup.cmd renommé en ShareConnect-Setup.cmd.  
+		
