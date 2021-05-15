@@ -3,13 +3,14 @@
 Version 1.9 du 12/05/2021 - Par Tlem33
 https://github.com/Tlem33/ShareConnect
 
-***
+---
 
 ## DESCRIPTION :
 
 ShareConnect.bat est un utilitaire de connexion de partages réseau écrit par Tlem (tlem@tuxolem.fr).  
 ShareConnect+.bat est l'évolution de ShareConnect.bat et permet la connexion de plusieurs partages.  
 
+---
 
 ## INSTALLATION et DESINSTALLATION :
 Lancez Setup.cmd et suivez les instructions.  
@@ -20,6 +21,7 @@ le programme pour rentrer les paramètres de connexion dans la section "CONFIGUR
 
 ShareConnect+.bat, utilise le fichier .ini pour lire les paramètres des différents partages à connecter.  
 
+---
 
 ## UTILISATION :
 
@@ -50,19 +52,15 @@ Password2=              ; Mot de passe  (Si nécessaire)
 
 Vous pouvez rajouter autant de partage que nécessaire en modifiant simplement la numérotation de chaque éléments.  
 
-
-
-***
+---
 
 ## SYSTEME(S) :
 
-Testé sous :
+     Windows 7
+     Windows 8
+     Windows 10
 
-            - Windows 7
-            - Windows 8
-            - Windows 10
-
-***
+---
 
 ## LICENCE :
 
@@ -167,3 +165,4 @@ INDIRECT AVEC L’UTILISATION DE CE LOGICIEL.
 		- Setup.cmd : Remplacement du mode de sélection des choix (Set /P => Choice). 
 		- Setup.cmd renommé en ShareConnect-Setup.cmd.  
 		
+---
